@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -78,7 +73,7 @@
    &none    &hm_l LCTRL A    &hm_l LALT S    &hm_l LGUI D    &hm_l LSHFT F    &kp G      &kp H    &hm_r RSHFT J    &hm_r LGUI K    &hm_r RALT L    &hm_r RCTRL SEMI    &none
    &none    &kp Z            &kp X           &kp C           &kp V            &kp B      &kp N    &kp M            &kp COMMA       &kp DOT         &kp FSLH            &none
 
-   &kp LSHFT    &lt _SYMBOLS BSPC    &mt LGUI ESC      &mt RGUI RET   &lt _FUNCTIONS SPACE   &kp RSHFT
+   &kp LGUI    &lt _SYMBOLS BSPC    &mt LSHFT ESC      &mt RSHFT RET   &lt _FUNCTIONS SPACE   &kp RGUI
                         >;
                 };
 
@@ -89,7 +84,7 @@
    &none    &none        &none        &kp LPAR    &kp RPAR    &kp UNDER      &kp N4      &kp N5      &kp N6    &kp KP_SUBTRACT    &kp KP_DIVIDE      &none
    &none    &kp TILDE    &kp GRAVE    &kp LBKT    &kp RBKT    &kp MINUS      &kp N7      &kp N8      &kp N9    &kp KP_DOT         &kp KP_EQUAL       &none
 
-   &kp LSHFT    &trans    &none      &none    &none    &kp N0
+   &none    &trans    &kp LSHFT      &kp RSHFT    &none    &kp N0
                         >;
                 };
 
@@ -105,3 +100,4 @@
                 };
         };
 };
+
