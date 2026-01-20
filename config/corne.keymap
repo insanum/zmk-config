@@ -8,18 +8,73 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define _BASE      0
+#define _SYMBOLS   1
+#define _FUNCTIONS 2
+
 / {
+        behaviors {
+                hm_l: homerow_mods_left {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HM_L";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <175>;
+                        /*
+                        * Left-hand HRMs should only become holds when you press:
+                        * - Any RIGHT-hand key positions (all rows)
+                        * - Any THUMB key positions (both thumbs)
+                        * This prevents same-hand rolls like A->S from turning into Ctrl/Alt/etc.
+                        */
+                        hold-trigger-key-positions = <
+                                /* Right half (top, home, bottom) */
+                                6 7 8 9 10 11
+                                18 19 20 21 22 23
+                                30 31 32 33 34 35
+
+                                /* Thumbs (both halves) */
+                                36 37 38
+                                39 40 41
+                        >;
+                };
+
+                hm_r: homerow_mods_right {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HM_R";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <175>;
+                        /*
+                         * Right-hand HRMs should only become holds when you press:
+                         * - Any LEFT-hand key positions (all rows)
+                         * - Any THUMB key positions (both thumbs)
+                         */
+                         hold-trigger-key-positions = <
+                                 /* Left half (top, home, bottom) */
+                                 0 1 2 3 4 5
+                                 12 13 14 15 16 17
+                                 24 25 26 27 28 29
+
+                                 /* Thumbs (both halves) */
+                                 36 37 38
+                                 39 40 41
+                         >;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
-                        display-name = "default";
+                base_layer {
+                        display-name = "base";
                         bindings = <
-   &none    &kp Q          &kp W         &kp E         &kp R          &kp T      &kp Y    &kp U          &kp I         &kp O         &kp P             &none
-   &none    &mt LCTRL A    &mt LALT S    &mt LGUI D    &mt LSHFT F    &kp G      &kp H    &mt RSHFT J    &mt LGUI K    &mt RALT L    &mt RCTRL SEMI    &none
-   &none    &kp Z          &kp X         &kp C         &kp V          &kp B      &kp N    &kp M          &kp COMMA     &kp DOT       &kp FSLH          &none
+   &none    &kp Q            &kp W           &kp E           &kp R            &kp T      &kp Y    &kp U            &kp I           &kp O           &kp P               &none
+   &none    &hm_l LCTRL A    &hm_l LALT S    &hm_l LGUI D    &hm_l LSHFT F    &kp G      &kp H    &hm_r RSHFT J    &hm_r LGUI K    &hm_r RALT L    &hm_r RCTRL SEMI    &none
+   &none    &kp Z            &kp X           &kp C           &kp V            &kp B      &kp N    &kp M            &kp COMMA       &kp DOT         &kp FSLH            &none
 
-   &kp LSHFT    &lt 1 BSPC    &mt LGUI ESC      &mt RGUI RET   &lt 2 SPACE   &kp RSHFT
+   &kp LSHFT    &lt _SYMBOLS BSPC    &mt LGUI ESC      &mt RGUI RET   &lt _FUNCTIONS SPACE   &kp RSHFT
                         >;
                 };
 
