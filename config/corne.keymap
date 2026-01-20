@@ -21,6 +21,7 @@
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <175>;
+                        hold-trigger-on-release;
                         /*
                         * Left-hand HRMs should only become holds when you press:
                         * - Any RIGHT-hand key positions (all rows)
@@ -46,6 +47,7 @@
                         flavor = "tap-preferred";
                         tapping-term-ms = <200>;
                         quick-tap-ms = <175>;
+                        hold-trigger-on-release;
                         /*
                          * Right-hand HRMs should only become holds when you press:
                          * - Any LEFT-hand key positions (all rows)
