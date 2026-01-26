@@ -63,6 +63,44 @@
                 };
         };
 
+        macros {
+                screenshot: screenshot {
+                        label = "screenshot";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                            = <&macro_press &kp RGUI>
+                            , <&macro_press &kp LSHFT>
+                            , <&macro_tap &kp N4>
+                            , <&macro_release &kp LSHFT>
+                            , <&macro_release &kp RGUI>
+                            ;
+                };
+
+                emojis: emojis {
+                        label = "emojis";
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings
+                            = <&macro_press &kp RGUI>
+                            , <&macro_press &kp LCTRL>
+                            , <&macro_tap &kp SPACE>
+                            , <&macro_release &kp LCTRL>
+                            , <&macro_release &kp RGUI>
+                            ;
+                };
+        };
+
+        combos {
+                compatible = "zmk,combos";
+
+                combo_esc {
+                        timeout-ms = <50>;
+                        key-positions = <20 21>;
+                        bindings = <&kp ESC>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -73,16 +111,16 @@
    &none    &hm_l LCTRL A    &hm_l LALT S    &hm_l LGUI D    &hm_l LSHFT F    &kp G      &kp H    &hm_r RSHFT J    &hm_r LGUI K    &hm_r RALT L    &hm_r RCTRL SEMI    &none
    &none    &kp Z            &kp X           &kp C           &kp V            &kp B      &kp N    &kp M            &kp COMMA       &kp DOT         &kp FSLH            &none
 
-   &kp LGUI    &lt _SYMBOLS BSPC    &mt LSHFT ESC      &mt RSHFT RET   &lt _FUNCTIONS SPACE   &kp RGUI
+   &kp LGUI    &lt _SYMBOLS BSPC    &kp LSHFT      &mt RSHFT RET   &lt _FUNCTIONS SPACE   &mt RGUI ESC
                         >;
                 };
 
                 symbols_layer {
                         display-name = "symbols";
                         bindings = <
-   &none    &kp TAB      &none        &kp LBRC    &kp RBRC    &kp ASTRK      &kp N1      &kp N2      &kp N3    &kp KP_PLUS        &kp KP_MULTIPLY    &none
-   &none    &kp APOS     &kp BSLH     &kp LPAR    &kp RPAR    &kp UNDER      &kp N4      &kp N5      &kp N6    &kp KP_SUBTRACT    &kp KP_DIVIDE      &none
-   &none    &kp TILDE    &kp GRAVE    &kp LBKT    &kp RBKT    &kp MINUS      &kp N7      &kp N8      &kp N9    &kp KP_DOT         &kp KP_EQUAL       &none
+   &none    &kp TAB      &kp BSLH     &kp LBRC    &kp RBRC    &kp ASTRK      &kp KP_PLUS        &kp N1      &kp N2      &kp N3    &kp KP_MULTIPLY    &none
+   &none    &kp APOS     &kp PIPE     &kp LPAR    &kp RPAR    &kp MINUS      &kp KP_SUBTRACT    &kp N4      &kp N5      &kp N6    &kp KP_DIVIDE      &none
+   &none    &kp TILDE    &kp GRAVE    &kp LBKT    &kp RBKT    &kp UNDER      &kp KP_DOT         &kp N7      &kp N8      &kp N9    &kp KP_EQUAL       &none
 
    &none    &trans    &kp LSHFT      &kp RSHFT    &none    &kp N0
                         >;
@@ -91,9 +129,9 @@
                 functions_layer {
                         display-name = "functions";
                         bindings = <
-   &none    &kp F1        &kp F2          &kp F3          &kp F4        &kp F5      &kp F6      &kp F7      &kp F8    &kp F9       &kp F10    &none
-   &none    &none         &kp K_VOL_DN    &kp K_VOL_UP    &kp K_MUTE    &none       &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &kp F11    &none
-   &none    &bt BT_PRV    &bt BT_NXT      &bt BT_CLR      &trans        &none       &none       &none       &none     &none        &kp F12    &none
+   &none    &kp F1        &kp F2          &kp F3          &kp F4        &kp F5          &kp F6         &kp F7      &kp F8    &kp F9       &kp F10    &none
+   &none    &none         &kp K_VOL_DN    &kp K_VOL_UP    &kp K_MUTE    &none           &kp LEFT       &kp DOWN    &kp UP    &kp RIGHT    &kp F11    &none
+   &none    &bt BT_PRV    &bt BT_NXT      &bt BT_CLR      &trans        &caps_word      &screenshot    &emojis     &none     &none        &kp F12    &none
 
    &none    &none    &none      &none    &trans   &none
                         >;
