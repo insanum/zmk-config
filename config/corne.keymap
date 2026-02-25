@@ -142,9 +142,9 @@
                 symbols_layer {
                         display-name = "symbols";
                         bindings = <
-   &none    &kp TAB      &kp BSLH     &kp LBRC    &kp RBRC    &kp ASTRK      &kp KP_PLUS        &kp N1      &kp N2      &kp N3    &kp KP_MULTIPLY    &none
-   &none    &kp APOS     &kp PIPE     &kp LPAR    &kp RPAR    &kp MINUS      &kp KP_SUBTRACT    &kp N4      &kp N5      &kp N6    &kp KP_DIVIDE      &none
-   &none    &kp TILDE    &kp GRAVE    &kp LBKT    &kp RBKT    &kp UNDER      &kp KP_DOT         &kp N7      &kp N8      &kp N9    &kp KP_EQUAL       &none
+   &none    &kp TAB      &kp BSLH     &kp LBRC    &kp RBRC    &kp ASTRK      &kp PLUS     &kp N1      &kp N2      &kp N3    &kp ASTRK    &none
+   &none    &kp APOS     &kp PIPE     &kp LPAR    &kp RPAR    &kp MINUS      &kp MINUS    &kp N4      &kp N5      &kp N6    &kp FSLH     &none
+   &none    &kp TILDE    &kp GRAVE    &kp LBKT    &kp RBKT    &kp UNDER      &kp DOT      &kp N7      &kp N8      &kp N9    &kp EQUAL    &none
 
    &none    &trans    &kp LSHFT      &kp RSHFT    &none    &kp N0
                         >;
