@@ -135,7 +135,7 @@
    &none    &hm_l LCTRL A    &hm_l LALT S    &hm_l LGUI D    &hm_l LSHFT F    &kp G      &kp H    &hm_r RSHFT J    &hm_r LGUI K    &hm_r RALT L    &hm_r RCTRL SEMI    &none
    &none    &kp Z            &kp X           &kp C           &kp V            &kp B      &kp N    &kp M            &kp COMMA       &kp DOT         &kp FSLH            &none
 
-   &kp LGUI    &ltq _SYMBOLS BSPC    &kp LSHFT      &mtq RSHFT RET   &ltq _FUNCTIONS SPACE   &mtq RGUI ESC
+   &kp LGUI    &ltq _SYMBOLS BSPC    &kp LSHFT      &mtq RSHFT RET   &ltq _FUNCTIONS SPACE   &mtq RALT ESC
                         >;
                 };
 
